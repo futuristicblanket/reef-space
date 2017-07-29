@@ -10,6 +10,7 @@
   display: inline-block;
 }
 
-#type {
-  
+.type {
+  display: flex;
+  justify-content: space-around;
 }

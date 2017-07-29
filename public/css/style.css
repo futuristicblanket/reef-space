@@ -17,7 +17,11 @@
     border: 1px solid 080808;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
+    opacity: 0.2;
   }
+#chart {
+  opacity: 1;
+}
   
   #map {
     display: inline-block;

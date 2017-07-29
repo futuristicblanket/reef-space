@@ -1,12 +1,29 @@
 $(document).ready(function () {
   //GETTING DATA
-  $.get('/python/data/waveData.json', {}, function (data) {
+  /*$.get('/python/data/waveData.json', {}, function (data) {
     console.log(data);
-  }, 'json');
+  }, 'json');*/
   //FIXXING POINTS
-  var power = 10 ** 2
-  var long = (Math.round(longatude * power)) / power;
-  var lat = (Math.round(latatude * power)) / power;
+  /* var power = 10 ** 2
+   var long = (Math.round(longatude * power)) / power;
+   var lat = (Math.round(latatude * power)) / power;*/
+
+  //CLICKS
+  /*var chartl = $("#right");
+  chartl.click(function () {
+    counter++
+    if (counter > numofpanels) {
+      counter = 0
+    };
+  })
+});
+var chartr = $("#left");
+chartr.click(function () {
+  counter = counter - 1;
+  if (counter < 0) {
+    counter = numofpanels;
+  };
+});*/
   //DATA AND VARIBELS
   var counter = 0;
   var labels = ['red', 'red', 'red', 'red', 'red', 'red'];
@@ -16,23 +33,6 @@ $(document).ready(function () {
   var label = ['red'];
   var numofpanels = 1;
 
-  //CLICKS
-  var chartl = $("#right");
-  chartl.click(function () {
-    counter++
-    if (counter > numofpanels) {
-      counter = 0
-    };
-    })
-  });
-  var chartr = $("#left");
-  chartr.click(function () {
-    counter = counter - 1;
-    if (counter < 0) {
-      counter = numofpanels;
-    };
-    })
-  });
   //GRPAHING FUNCTION
   var ctx = $("#chart").get();
   var mono = new Chart(ctx, {

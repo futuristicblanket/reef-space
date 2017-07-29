@@ -2,12 +2,31 @@ import io
 import json
 import urllib
 
-def main():
-	waveData()
+#Add the JSON output files
+dataFiles = ["data/waveData.json"]
+#Add the URLS to get the CSV files
+dataUrls = ["http://www.ehp.qld.gov.au/data-sets/waves/wave-7dayopdata.csv?timestamp=2017-07-29EST11-06-50?"]
+#Add the column name of the heading of the JSON file
+dataHead = ["Site"]
+#Add the column names of the data of the JSON file
+dataBody = [["DateTime", "Latitude", "Longitude", "SST"]]
 
+
+def main():
+	for f in range(len(dataFiles)):
+		allData = []
+		dataRows = urlToLines(dataUrls[f])
+		dataDict = rowToDictArr(dataRows)
+		clearFile(dataFiles[f])
+		for d in range(len(dataDict)):
+			if d > 0:
+				JSONDict = formatJSON(dataDict[d], dataHead[f], dataBody[f])
+				allData.append(JSONDict)
+		dictToJSON(allData, dataFiles[f])
+			
 def rowToDictArr(row):
 	dictArr = []
-	columnNames = ['Site', 'SiteNumber', 'DateTime', 'Latitude', 'Longitude', 'Hsig', 'Hmax', 'Tp', 'Tz', 'SST', 'Direction']
+	columnNames = (row[1].split(', '))
 	for r in range(len(row)):
 		dictionary = dict(zip(columnNames, row[r].split(',')))
 		dictArr.append(dictionary)
@@ -25,21 +44,22 @@ def dictToJSON(dictionary, file):
 		to_unicode = str
 	
 	with io.open(file, 'a', encoding='utf8') as jsonFile:
-		str_ = json.dumps(dictionary, indent=4, separators=(',', ': '), ensure_ascii=False)
+		str_ = json.dumps(dictionary, indent=4, separators=(',', ': '), ensure_ascii=False, sort_keys=False)
 		jsonFile.write(to_unicode(str_))
+
+def formatJSON(dictionary, headName, bodyNames):
+	tempArray = []
+	for n in bodyNames:
+		tempArray.append(dictionary[n])
+	jsonDict = {
+		headName:dictionary[headName],
+		"Data":tempArray
+	}
+	return jsonDict
 
 def urlToLines(url):
 	data = urllib.urlopen(url)
 	rows = data.readlines()
-		
 	return rows
 
-def waveData():
-	clearFile("waveData.json")
-	wavedataRows = urlToLines("http://www.ehp.qld.gov.au/data-sets/waves/wave-7dayopdata.csv?timestamp=2017-07-29EST11-06-50?")
-	waveDataDict = rowToDictArr(wavedataRows)
-	for d in range(len(waveDataDict)):
-		if d != 0:
-			dictToJSON(waveDataDict[d], "waveData.json")
-		
 main()

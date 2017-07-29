@@ -25,18 +25,17 @@
     <!-- HEADER -->
     <nav class="navbar navbar-inverse" id="thingo">
       <div class="navbar-header">
-        <a class="navbar-brand" href="/">Data Reef</a>
-        <a href="/"><img src="img/reeflogo copy.png" style="width:50px; height:50px;"></a>
+        <a class="navbar-brand" href="/" id="navbar-items">Data Reef</a>
       </div>
 
       <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
       <ul class="nav navbar-nav">
-        <li><a href="/gbr">The Great Barrier Reef</a></li>
+        <li class="navbar-items"><a href="/gbr">The Great Barrier Reef</a></li>
         
         <!--<li><a href="/CA">Central Australia</a></li>
         <li><a href="/SM">Snowy Mountains</a></li>-->
-        <li><a href="/sources">Sources</a></li>
-        <li><a href="/about">About Us</a></li>
+        <li class="navbar-items"><a href="/sources">Sources</a></li>
+        <li class="navbar-items"><a href="/about">About Us</a></li>
       </ul>
     </nav>
 
@@ -44,9 +43,6 @@
 
     <!-- Where the template goes -->
     {{{ yield }}}
-
-      
-
 
   </div>
 

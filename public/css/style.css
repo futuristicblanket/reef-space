@@ -57,5 +57,9 @@ body {
   justify-content: space-around;
 }
 .text-formatting {
+
+  background-color:rgba(245, 245, 220, 0.28);
+}
   background-color:beige;
 }
+

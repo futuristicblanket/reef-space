@@ -11,7 +11,7 @@ var path = require('path');
 // configuration ===========================================
 
 // config files
-var config = require('./config/config.js').get("production" || process.env.NODE_ENV);
+var config = require('./config/config.js').get(process.env.NODE_ENV || "production");
 
 // set our port
 var port = process.env.PORT || config.port;

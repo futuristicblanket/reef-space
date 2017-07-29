@@ -1,0 +1,29 @@
+<script type="text/javascript" src="libs/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="libs/chart.js/dist/Chart.js"></script>
+<script type="text/javascript" src="js/reef.js"></script>
+<div>
+  <div>
+    <div id="reef-charting">
+      <span></span>
+      <canvas id="chart"></canvas>
+
+      <span class="glyphicon glyphicon-menu-right" style="float: right;"></span>
+      <span class="glyphicon glyphicon-menu-left" style="float: left;"></span>
+      <br>
+      <p id="sample-text"></p>
+      <br>
+    </div>
+    <div id="map" style="width: 70%; height: 600px;"></div>
+  </div>
+</div>
+<script src="https://api.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js"></script>
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoicXVhbnR1bWRpc2htb3AiLCJhIjoiY2o1b3d5ajhhMDRyZjJxbWtieDExdzNqaSJ9.hBlTW6xRINUiZ6R_n7oGeg';
+  var Mymap = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/satellite-v9',
+    center: new mapboxgl.LngLat(149.600944, -20.266583),
+    zoom: 4.5
+  });
+
+</script>

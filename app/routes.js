@@ -52,9 +52,11 @@ module.exports = function (app) {
   app.get('/sources', function (req, res) {
     res.render('sources');
   });
+  app.get('/about', function (req, res) {
+    res.render('about');
+  });
   app.use(function (req, res, next) {
     res.status(404);
-
     // respond with html page
     if (req.accepts('html')) {
       res.render('404');

@@ -20,9 +20,6 @@ $(document).ready(function () {
     if (counter > numofpanels) {
       counter = 0
     };
-    chartl.slideUp(1000, function () {
-      graph();
-      chartl.slideDown(1000)
     })
   });
   var chartr = $("#left");
@@ -31,9 +28,6 @@ $(document).ready(function () {
     if (counter < 0) {
       counter = numofpanels;
     };
-    chartr.slideUp(1000, function () {
-      graph();
-      chartr.slideDown(1000)
     })
   });
   //GRPAHING FUNCTION

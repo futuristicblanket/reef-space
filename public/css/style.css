@@ -14,6 +14,7 @@
     height: 600px;
     float: left;
     padding: 5px;
+    
   }
   
   #map {
@@ -33,4 +34,9 @@
     background-color: rgba(52, 52, 52, 0.6);
     padding: 10px;
     color: #9d9d9d;
+    border-radius:4px;
   }
+.navbar-items:hover, #navbar-items:hover {
+  background-color: #313131;
+  border-radius:3px;
+}

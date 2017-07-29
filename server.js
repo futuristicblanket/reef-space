@@ -1,5 +1,5 @@
 // server.js
-  
+
 // modules =================================================
 var express = require('express');
 var app = express();
@@ -11,14 +11,14 @@ var path = require('path');
 // configuration ===========================================
 
 // config files
-var config = require('./config/config.js').get(process.env.NODE_ENV);
+var config = require('./config/config.js').get("production" || process.env.NODE_ENV);
 
 // set our port
 var port = process.env.PORT || config.port;
 
 // connect to our mongoDB database 
 // (uncomment after you enter in your own credentials in config/db.js)
-mongoose.connect(config.database); 
+mongoose.connect(config.database);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {

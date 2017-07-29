@@ -1,3 +1,35 @@
+  body {
+    background-image: url(../img/bg.png)
+  }
+  
+  #reef-charting {
+    background-color: #222;
+    width: 30% !important;
+    display: inline-block;
+    height: 600px;
+    float: left;
+    padding: 10px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+  
+  #content {
+    border: 1px solid #080808;
+    border-radius: 4px;
+  }
+  
+  #map {
+    display: inline-block;
+  }
+  
+  #thingo {
+    background-color: #222;
+  }
+  
+.type {
+    display: flex;
+    justify-content: space-around;
+  }
 body {
   background-image: url(../img/bg.png)
 }
@@ -10,6 +42,7 @@ body {
   float: left;
   padding: 5px;
 }
+
 
 #map {
   display: inline-block;

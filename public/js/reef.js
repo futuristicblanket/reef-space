@@ -3,7 +3,10 @@ $(document).ready(function () {
   $.get('/python/data/waveData.json', {}, function (data) {
     console.log(data);
   }, 'json');
-
+  //FIXXING POINTS
+  var power = 10 ** 2
+  var long = (Math.round(longatude * power)) / power;
+  var lat = (Math.round(latatude * power)) / power;
   //DATA AND VARIBELS
   var counter = 0;
   var labels = ['red', 'red', 'red', 'red', 'red', 'red'];

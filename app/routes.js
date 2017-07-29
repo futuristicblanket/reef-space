@@ -61,7 +61,6 @@ module.exports = function (app) {
     if (req.accepts('html')) {
       res.render('404');
       return;
-    }
-    //};
+    };
   });
 };

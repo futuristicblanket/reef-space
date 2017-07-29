@@ -49,7 +49,7 @@ $(document).ready(function () {
     })
   });*/
   //GRPAHING FUNCTION
-    var ctx = $("#chart").get();
+    /*var ctx = $("#chart").get();
     var mono = new Chart(ctx, {
       type: type,
       data: {
@@ -71,5 +71,5 @@ $(document).ready(function () {
               }]
         }
       }
-    });
+    });*/
 });

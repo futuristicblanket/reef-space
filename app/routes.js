@@ -1,8 +1,6 @@
 // app/routes.js
 
 // grab the chicken model we just created
-var Chicken = require('./models/Chicken.js');
-
 module.exports = function (app) {
   // server routes ===========================================================
   // handle things like api calls

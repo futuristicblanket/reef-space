@@ -47,16 +47,10 @@ module.exports = function (app) {
   });
 
   app.get('/gbr', function (req, res) {
-    res.render('GBR');
+    res.render('gbr');
   });
-  app.get('/sm', function (req, res) {
-    res.render('404');
-  });
-  app.get('/ca', function (req, res) {
-    res.render('404');
-  });
-  app.get('/souces', function (req, res) {
-    res.render('souces');
+  app.get('/sources', function (req, res) {
+    res.render('sources');
   });
   app.use(function (req, res, next) {
     res.status(404);

@@ -52,23 +52,5 @@ def waveData():
 		if d > 0:
 			JSONDict = formatJSON(waveDataDict[d], "Site", ["DateTime", "Latitude", "Longitude", "SST"])
 			dictToJSON(JSONDict, "data\waveData.json")
-
-def Data():
-	clearFile("data\waveData.json")
-	wavedataRows = urlToLines("http://www.ehp.qld.gov.au/data-sets/waves/wave-7dayopdata.csv?timestamp=2017-07-29EST11-06-50?")
-	waveDataDict = rowToDictArr(wavedataRows)
-	for d in range(len(waveDataDict)):
-		if d > 0:
-			JSONDict = formatJSON(waveDataDict[d], "Site", ["DateTime", "Latitude", "Longitude", "SST"])
-			dictToJSON(JSONDict, "data\waveData.json")
 			
-def waveData():
-	clearFile("data\waveData.json")
-	wavedataRows = urlToLines("http://www.ehp.qld.gov.au/data-sets/waves/wave-7dayopdata.csv?timestamp=2017-07-29EST11-06-50?")
-	waveDataDict = rowToDictArr(wavedataRows)
-	for d in range(len(waveDataDict)):
-		if d > 0:
-			JSONDict = formatJSON(waveDataDict[d], "Site", ["DateTime", "Latitude", "Longitude", "SST"])
-			dictToJSON(JSONDict, "data\waveData.json")
-	
 main()

@@ -19,7 +19,10 @@ body {
   background-color: #222;
 }
 
-=======.type {
+.type {
   display: flex;
   justify-content: space-around;
+}
+.text-formatting {
+  background-color:beige;
 }

@@ -1,7 +1,10 @@
 // app/routes.js
 
 // grab the chicken model we just created
+<<<<<<< HEAD
 
+=======
+>>>>>>> a29835c03538ec1af1e2ab13f049717896193f8b
 module.exports = function (app) {
   // server routes ===========================================================
   // handle things like api calls

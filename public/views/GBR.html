@@ -1,10 +1,35 @@
+<style>
+  #reef-mapping {
+    width: 100%;
+    height: 100%;
+  }
+
+</style>
 <div id="reef-charting">
   <span></span>
   <canvas id="chart"></canvas>
   <span></span>
   <br>
   <p id="sample-text"></p>
+  <br>
+  <button id="more"></button>
 </div>
+<<<<<<< HEAD
 <div id="reef-mapping">
 </div>
 <script type="text/javascript" src="js/reef.js"></script>
+<script type="text/javascript" src="libs/jquery/dist/jquery.js"></script>
+=======
+<div id="map" style="width: 400px; height: 300px;"></div>
+<script src="https://api.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js"></script>
+<script>
+  
+  mapboxgl.accessToken = 'pk.eyJ1IjoicXVhbnR1bWRpc2htb3AiLCJhIjoiY2o1b3d5ajhhMDRyZjJxbWtieDExdzNqaSJ9.hBlTW6xRINUiZ6R_n7oGeg';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/dark-v9'
+  });
+
+</script>
+<script type="text/javascript" src="js/reef.js"></script>
+>>>>>>> fdb64095a3aad2441064532010cd2cf0d825b29f

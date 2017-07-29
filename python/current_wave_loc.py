@@ -1,39 +1,37 @@
 import json
+import io
 
 def main():
-	timeRecords = findDataTimes("data/waveData.json")
-	latestData = findLatestData("data/waveData.json", timeRecords[-1])
-	createJSONFile("data/waveData_latest.json", latestData)
+	jsonData = JSONtoArrDict("data/waveData.json")
+	latestTime = findLatestTime(jsonData)
+	latestData = findLatestData(latestTime, jsonData)
+	dictToJSON(latestData, "data/waveData_latest.json")
 
-def findDataTimes(jsonFileName):
-	jsonFile = open(jsonFileName)
-	lineNo = 0
-	time = []
-	for l in jsonFile:
-		if (lineNo % 8 == 2):
-			if l not in time:
-				time.append(l)
-		lineNo += 1
-	jsonFile.close()
-	return time
-
-def findLatestData(jsonFileName, time):
-	data = []
-	jsonFile = open(jsonFileName)
-	lineNo = 0
-	for l in jsonFile:
-		if l == time:
-			lineNo = 1
-		if ((lineNo < 9) and (lineNo != 4)):
-			data.append(l)
-		lineNo += 1
-	jsonFile.close()
+def dictToJSON(dictionary, file):
+	try:
+		to_unicode = unicode
+	except NameError:
+		to_unicode = str
+	
+	with io.open(file, 'a', encoding='utf8') as jsonFile:
+		str_ = json.dumps(dictionary, indent=4, separators=(',', ': '), ensure_ascii=False, sort_keys=False)
+	
+def JSONtoArrDict(fileName):
+	with open(fileName) as jsonFile:    
+		data = json.load(jsonFile)
 	return data
 
-def createJSONFile(fileName, data):
-	jsonFile = open(fileName, 'w')
-	for d in data:
-		jsonFile.write(d)
-	jsonFile.close()
+def findLatestTime(data):
+	times = []
+	for l in data:
+		times.append(l["Data"][0])
+	return times[-1]
+
+def findLatestData(time, data):
+	allData = []
+	for l in data:
+		if l["Data"][0] is time:
+			allData.append(l)
+	return allData
 
 main()

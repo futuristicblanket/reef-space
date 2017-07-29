@@ -6,25 +6,13 @@ $(document).ready(function () {
   //GETTINF DATA
   //DATA AND VARIBELS
   var counter = 0;
-  var labels = 'red';
-  var type = 'bar';
-  var data = [1];
-  var colors = ['#000'];
+  var labels = ['red', 'red', 'red', 'red', 'red', 'red'];
+  var atype = 'line';
+  var data = [1, 2, 4, 8, 16, 32];
+  var colors = ['#ff0000', '#ff0000', '#ff0000', '#ff0000', '#ff0000', '#ff0000'];
   var label = ['red'];
   var numofpanels = 1;
 
-  //CLICKS
-  var chartl = $("#right");
-  chartl.click(function () {
-    counter++
-    if (counter > numofpanels) {
-      counter = 0
-    };
-    chartl.slideUp(1000, function () {
-      graph();
-      chartl.slideDown(1000)
-    })
-  });
   //CLICKS
   /*var chartl = $("#right");
   chartl.click(function () {
@@ -49,27 +37,28 @@ $(document).ready(function () {
     })
   });*/
   //GRPAHING FUNCTION
-    /*var ctx = $("#chart").get();
-    var mono = new Chart(ctx, {
-      type: type,
-      data: {
-        labels: labels,
-        datasets: [{
-          label: label,
-          data: data,
-          backgroundColor: colors,
-          borderColor: colors,
-          borderWidth: 1
+  var ctx = $("#chart").get();
+  var mono = new Chart(ctx, {
+    type: atype,
+    data: {
+      labels: labels,
+      datasets: [{
+        label: label,
+        data: data,
+        backgroundColor: colors,
+        borderColor: colors,
+        borderWidth: 1
           }]
-      },
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true,
-            }
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true,
+          }
               }]
-        }
       }
-    });*/
+    }
+
+  });
 });

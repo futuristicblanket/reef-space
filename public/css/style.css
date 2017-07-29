@@ -1,1 +1,11 @@
-#.
+#reef-charting {
+  background-color: beige;
+  width: 50% !important;
+  display: inline-block;
+  height: 600px;
+  float: left;
+}
+
+#map {
+  display: inline-block;
+}

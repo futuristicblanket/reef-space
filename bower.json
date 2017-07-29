@@ -1,0 +1,10 @@
+{
+  "name": "github-example-app",
+  "version": "1.0.0",
+  "dependencies": {
+    "bootstrap": "latest",
+    "font-awesome": "latest",
+    "animate.css": "latest",
+    "chart.js": "^2.6.0"
+  }
+}

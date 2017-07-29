@@ -1,12 +1,14 @@
-body{
+body {
   background-image: url(../img/bg.png)
 }
+
 #reef-charting {
   background-color: #222;
   width: 30% !important;
   display: inline-block;
   height: 600px;
   float: left;
+  padding: 5px;
 }
 
 #map {
@@ -16,8 +18,8 @@ body{
 #thingo {
   background-color: #222;
 }
-=======
-.type {
+
+=======.type {
   display: flex;
   justify-content: space-around;
 }

@@ -1,9 +1,9 @@
 $(document).ready(function () {
   //GETTING DATA
-  /*$.get('/python/data/waveData.json', {}, function (data) {
+  $.get('/python/data/waveData.json', {}, function (data) {
     console.log(data);
-  }, 'json');*/
-  //GETTINF DATA
+  }, 'json');
+
   //DATA AND VARIBELS
   var counter = 0;
   var labels = ['red', 'red', 'red', 'red', 'red', 'red'];
@@ -14,7 +14,7 @@ $(document).ready(function () {
   var numofpanels = 1;
 
   //CLICKS
-  /*var chartl = $("#right");
+  var chartl = $("#right");
   chartl.click(function () {
     counter++
     if (counter > numofpanels) {
@@ -35,7 +35,7 @@ $(document).ready(function () {
       graph();
       chartr.slideDown(1000)
     })
-  });*/
+  });
   //GRPAHING FUNCTION
   var ctx = $("#chart").get();
   var mono = new Chart(ctx, {
@@ -57,7 +57,8 @@ $(document).ready(function () {
             beginAtZero: true,
           }
               }]
-      }
+      },
+      fill: true,
     }
 
   });

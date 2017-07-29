@@ -2,12 +2,29 @@ import io
 import json
 import urllib
 
-def main():
-	waveData()
+#Add the JSON output files
+dataFiles = ["data/waveData.json"]
+#Add the URLS to get the CSV files
+dataUrls = ["http://www.ehp.qld.gov.au/data-sets/waves/wave-7dayopdata.csv?timestamp=2017-07-29EST11-06-50?"]
+#Add the column name of the heading of the JSON file
+dataHead = ["Site"]
+#Add the column names of the data of the JSON file
+dataBody = [["DateTime", "Latitude", "Longitude", "SST"]]
 
+
+def main():
+	for f in range(len(dataFiles)):
+		clearFile(dataFiles[f])
+		dataRows = urlToLines(dataUrls[f])
+		dataDict = rowToDictArr(dataRows)
+		for d in range(len(dataDict)):
+			if d > 0:
+				JSONDict = formatJSON(dataDict[d], dataHead[f], dataBody[f])
+				dictToJSON(JSONDict, dataFiles[f])
+	
 def rowToDictArr(row):
 	dictArr = []
-	columnNames = ['Site', 'SiteNumber', 'Seconds', 'DateTime', 'Latitude', 'Longitude', 'Hsig', 'Hmax', 'Tp', 'Tz', 'SST', 'Direction']
+	columnNames = (row[1].split(', '))
 	for r in range(len(row)):
 		dictionary = dict(zip(columnNames, row[r].split(',')))
 		dictArr.append(dictionary)
@@ -31,10 +48,10 @@ def dictToJSON(dictionary, file):
 def formatJSON(dictionary, headName, bodyNames):
 	tempArray = []
 	for n in bodyNames:
-		tempArray.append({n:dictionary[n]})
+		tempArray.append(dictionary[n])
 	jsonDict = {
 		headName:dictionary[headName],
-		'Data':tempArray
+		"Data":tempArray
 	}
 	return jsonDict
 
@@ -44,13 +61,5 @@ def urlToLines(url):
 		
 	return rows
 
-def waveData():
-	clearFile("data\waveData.json")
-	wavedataRows = urlToLines("http://www.ehp.qld.gov.au/data-sets/waves/wave-7dayopdata.csv?timestamp=2017-07-29EST11-06-50?")
-	waveDataDict = rowToDictArr(wavedataRows)
-	for d in range(len(waveDataDict)):
-		if d > 0:
-			JSONDict = formatJSON(waveDataDict[d], "Site", ["DateTime", "Latitude", "Longitude", "SST"])
-			dictToJSON(JSONDict, "data\waveData.json")
 			
 main()

@@ -14,14 +14,14 @@ dataBody = [["DateTime", "Latitude", "Longitude", "SST"]]
 
 def main():
 	for f in range(len(dataFiles)):
-		clearFile(dataFiles[f])
 		dataRows = urlToLines(dataUrls[f])
 		dataDict = rowToDictArr(dataRows)
+		clearFile(dataFiles[f])
 		for d in range(len(dataDict)):
 			if d > 0:
 				JSONDict = formatJSON(dataDict[d], dataHead[f], dataBody[f])
 				dictToJSON(JSONDict, dataFiles[f])
-	
+			
 def rowToDictArr(row):
 	dictArr = []
 	columnNames = (row[1].split(', '))
@@ -43,7 +43,7 @@ def dictToJSON(dictionary, file):
 	
 	with io.open(file, 'a', encoding='utf8') as jsonFile:
 		str_ = json.dumps(dictionary, indent=4, separators=(',', ': '), ensure_ascii=False, sort_keys=False)
-		jsonFile.write(to_unicode(str_))
+		jsonFile.write(to_unicode(str_+","))
 
 def formatJSON(dictionary, headName, bodyNames):
 	tempArray = []
@@ -58,8 +58,6 @@ def formatJSON(dictionary, headName, bodyNames):
 def urlToLines(url):
 	data = urllib.urlopen(url)
 	rows = data.readlines()
-		
 	return rows
 
-			
 main()

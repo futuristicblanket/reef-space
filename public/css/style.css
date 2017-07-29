@@ -16,3 +16,8 @@ body{
 #thingo {
   background-color: #77abff;
 }
+=======
+.type {
+  display: flex;
+  justify-content: space-around;
+}

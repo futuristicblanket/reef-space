@@ -45,9 +45,27 @@ module.exports = function (app) {
   app.get('/', function (req, res) {
     res.render('home');
   });
-	
-app.get('/gbr', function (req, res) {
+
+  app.get('/gbr', function (req, res) {
     res.render('GBR');
   });
-	
+  app.get('/sm', function (req, res) {
+    res.render('404');
+  });
+  app.get('/ca', function (req, res) {
+    res.render('404');
+  });
+  app.get('/souces', function (req, res) {
+    res.render('souces');
+  });
+  app.use(function (req, res, next) {
+    res.status(404);
+
+    // respond with html page
+    if (req.accepts('html')) {
+      res.render('404');
+      return;
+    }
+    //};
+  });
 };

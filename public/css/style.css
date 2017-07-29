@@ -1,0 +1,8 @@
+#map {
+  height: 100%;
+}
+
+#lat1, #lat2, #long1, #long2 {
+  width: 100px;
+  
+}

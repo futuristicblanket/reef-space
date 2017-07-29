@@ -1,6 +1,9 @@
-//GETTINF DATA
-
 $(document).ready(function () {
+  //GETTING DATA
+  $.get('/python/data/waveData.json', {}, function (data) {
+    console.log(data);
+  }, 'json');
+  //GETTINF DATA
   //DATA AND VARIBELS
   var counter = 0;
   var labels = [];
@@ -33,7 +36,29 @@ $(document).ready(function () {
       chartr.slideDown(1000)
     })
   });
-
+  //CLICKS
+  var chartl = $("#right");
+  chartl.click(function () {
+    counter++
+    if (counter > numofpanels) {
+      counter = 0
+    };
+    chartl.slideUp(1000, function () {
+      graph();
+      chartl.slideDown(1000)
+    })
+  });
+  var chartr = $("#left");
+  chartr.click(function () {
+    counter = counter - 1;
+    if (counter < 0) {
+      counter = numofpanels;
+    };
+    chartr.slideUp(1000, function () {
+      graph();
+      chartr.slideDown(1000)
+    })
+  });
   //GRPAHING FUNCTION
   function graph() {
     var ctx = $("#chart").get();

@@ -2,7 +2,7 @@ body{
   background-image: url(../img/bg.png)
 }
 #reef-charting {
-  background-color: #222;
+  background-color: #77abff;
   width: 30% !important;
   display: inline-block;
   height: 600px;
@@ -13,6 +13,6 @@ body{
   display: inline-block;
 }
 
-#type {
-  
+#thingo {
+  background-color: #77abff;
 }

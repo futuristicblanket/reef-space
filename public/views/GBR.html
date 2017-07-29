@@ -6,7 +6,7 @@
     <div id="reef-charting">
       <span></span>
       <canvas id="chart"></canvas>
-      
+
       <span class="glyphicon glyphicon-menu-right" style="float: right;"></span>
       <span class="glyphicon glyphicon-menu-left" style="float: left;"></span>
       <br>
@@ -21,8 +21,9 @@
   mapboxgl.accessToken = 'pk.eyJ1IjoicXVhbnR1bWRpc2htb3AiLCJhIjoiY2o1b3d5ajhhMDRyZjJxbWtieDExdzNqaSJ9.hBlTW6xRINUiZ6R_n7oGeg';
   var Mymap = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/satellite-v9'
+    style: 'mapbox://styles/mapbox/satellite-v9',
+    centre: [-21.147786, 150.258568],
+    zoom: 8
   });
+
 </script>
-
-

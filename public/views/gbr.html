@@ -19,9 +19,12 @@
 <script src="https://api.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js"></script>
 <script>
   mapboxgl.accessToken = 'pk.eyJ1IjoicXVhbnR1bWRpc2htb3AiLCJhIjoiY2o1b3d5ajhhMDRyZjJxbWtieDExdzNqaSJ9.hBlTW6xRINUiZ6R_n7oGeg';
-  var Mymap = new mapboxgl.Map({
+  var MyMap = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/satellite-v9'
+    style: 'mapbox://styles/mapbox/satellite-v9',
+    center: new mapboxgl.LngLat(149.600944, -20.266583),
+    zoom: 4.5
   });
+  MyMap.addControl(new mapboxgl.NavigationControl());
 
 </script>

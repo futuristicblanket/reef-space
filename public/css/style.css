@@ -33,5 +33,7 @@
   }
   
   .text-formatting {
-    background-color: beige;
+    background-color: rgba(52, 52, 52, 0.6);
+    padding: 10px;
+    color: #9d9d9d;
   }

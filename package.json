@@ -4,8 +4,8 @@
   "description": "A no frills MEAN starter project",
   "main": "server.js",
   "scripts": {
-    "start": "pm2 start server.js -i max — name=\"Github-Sample-App\" --env=\"production\"",
-    "restart": "pm2 restart all"
+    "start": "sudo pm2 start server.js -i max — name=\"Github-Sample-App\" --env=\"production\"",
+    "restart": "sudo pm2 restart all"
   },
   "author": "Thomas Payne",
   "license": "MIT",

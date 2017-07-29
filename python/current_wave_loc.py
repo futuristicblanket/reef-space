@@ -34,7 +34,6 @@ def createJSONFile(fileName, data):
 	jsonFile = open(fileName, 'w')
 	for d in data:
 		jsonFile.write(d)
-	jsonFile.write(",")
 	jsonFile.close()
 
 main()

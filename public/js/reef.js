@@ -1,3 +1,6 @@
+//GETTINF DATA
+ 
+
 //DATA AND VARIBELS
 var counter = 0;
 var labels = [];

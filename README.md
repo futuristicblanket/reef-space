@@ -9,7 +9,8 @@ It’s formatted in an interactive map intended to let clients navigate around Q
 By creating awareness, we hope to bring light to an important issue and hopefully, spark the need for change for generations now and continuing.
 
 ![Great Barrier Reef](https://farm5.staticflickr.com/4312/36098187321_6592c8fb0b_k_d.jpg)
-Photo by BobLPhD1 licensed under CC BY-NC-ND 2.0
+Photo by [BobLPhD1](https://www.flickr.com/photos/wickwob/) licensed under [CC BY-NC-ND 2.0](https://creativecommons.org/licenses/by-nc-nd/2.0/legalcode)
+
 ### How does this project relate to the topic?
 
 This project aims to display data about the variables which are evidence of the degeneration of our natural ecosystems including species under high risk, the changes in tidal patterns, decreasing water quality and similar. By selecting locations known for their important natural systems, you are then given the data in the ways of charts, graphs and similar that comprehensively explain the way our Queensland icons are being damaged through visual means.

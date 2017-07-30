@@ -9,3 +9,4 @@ It’s formatted in an interactive map intended to let clients navigate around Q
 By creating awareness, we hope to bring light to an important issue and hopefully, spark the need for change for generations now and continuing.
 
 ![Great Barrier Reef](https://farm5.staticflickr.com/4312/36098187321_6592c8fb0b_k_d.jpg)
+Photo by BobLPhD1 licensed under CC BY-NC-ND 2.0

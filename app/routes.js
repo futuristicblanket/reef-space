@@ -61,7 +61,7 @@ module.exports = function (app) {
   app.get('/about', function (req, res) {
     res.render('about');
   });
-  app.get('/data/waveData.json', function (req, res) {
+  app.get('/data/wave.json', function (req, res) {
     res.json(ocean_temp[req.query.site]);
   });
   app.get('/data/location.geojson', function (req, res) {

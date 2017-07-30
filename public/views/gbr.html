@@ -1,4 +1,3 @@
-
 <div>
   <div id="content">
     <div id="reef-charting">
@@ -23,7 +22,13 @@
     center: new mapboxgl.LngLat(149.600944, -20.266583),
     zoom: 4.5
   });
-  MyMap.addControl(new mapboxgl.NavigationControl());
+  MyMap.on('load', function() {
+    MyMap.addControl(new mapboxgl.NavigationControl());
+    MyMap.addSource('map', {
+      type: 'geojson',
+      data: 'data/location.geojson'
+    });
+  })
 
 </script>
 

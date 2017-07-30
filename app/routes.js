@@ -64,6 +64,16 @@ module.exports = function (app) {
   app.get('/data/waveData.json', function (req, res) {
     res.json(ocean_temp[req.query.site]);
   });
+  app.get('/data/temp.json', function (req, rss) {
+    var importantData = ocean_temp[req.query.site]
+    var arrayThing = []
+    for (i = importantData.length - 24; i < importantData.length; i++) {
+      arrayThing.push(importantData[i].SST);
+    }
+    res.json({
+      temp: arrayThing
+    });
+  })
   app.get('/data/location.geojson', function (req, res) {
     var cords = []
     var ourGeojson = {
@@ -84,7 +94,9 @@ module.exports = function (app) {
       var long = ocean_temp[location[i]][(ocean_temp[location[i]].length - 1)].Longitude
       cords.push([location[i], lat, long]);
       var point = geoJsonPoint;
-      point.properties = {"location": location[i]}
+      point.properties = {
+        "location": location[i]
+      }
       point.geometry.coordinates = [long, lat];
       console.log(point)
       var stringy = JSON.stringify(point)

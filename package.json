@@ -11,12 +11,14 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "csvtojson": "^1.1.7",
     "express": "^4.15.3",
     "hogan-express": "^0.5.2",
     "hogan.js": "^3.0.2",
     "method-override": "^2.3.9",
     "mongoose": "^4.11.1",
-    "pm2": "^2.6.1"
+    "pm2": "^2.6.1",
+    "turf": "^3.0.14"
   },
   "devDependencies": {
     "gulp": "^3.9.1",

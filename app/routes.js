@@ -1,5 +1,9 @@
 // app/routes.js
-
+var fs = require('fs');
+var ocean_temp;
+fs.readFile(__dirname + '/data/ocean_temp.json', "utf8", function (err, data) {
+  ocean_temp = JSON.parse(data);
+});
 // grab the chicken model we just created
 
 module.exports = function (app) {
@@ -54,6 +58,9 @@ module.exports = function (app) {
   });
   app.get('/about', function (req, res) {
     res.render('about');
+  });
+  app.get('/data/waveData.json', function (req, res) {
+    res.json(ocean_temp[req.query.site]);
   });
   app.use(function (req, res, next) {
     res.status(404);

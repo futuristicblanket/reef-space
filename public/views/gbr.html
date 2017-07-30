@@ -1,11 +1,14 @@
 <div>
   <div id="content">
     <div id="reef-charting">
+      <div id="spacer">
+      <h2 id="thingybob" style="color: white">Click a location to display data...</h2>
+    </div>
       <canvas id="myChart" height="200%"></canvas>
 
 
-      <button id="left" class="btn btn-info" style="width:40%; margin-left: 5%;"><span class="glyphicon glyphicon-menu-left" style="float: right;"></span></button>
-      <button id="right" class="btn btn-info" style="width:40%; margin-left: 10%;"><span class="glyphicon glyphicon-menu-right" style="float: left;"></span></button>
+      <button id="left" class="btn btn-info" style="width:40%; margin-left: 5%;"><span class="glyphicon glyphicon-menu-left" style="float: right; padding-right:50px;"></span></button>
+      <button id="right" class="btn btn-info" style="width:40%; margin-left: 10%;"><span class="glyphicon glyphicon-menu-right" style="float: left; padding-left:50%;"></span></button>
 
 
       <br>
@@ -31,7 +34,7 @@
   MyMap.on('mouseclick', function(e) {
     console.log(e.lngLat)
   });
-//$('#sneaky-snek').html(e);*/
+  //$('#sneaky-snek').html(e);*/
 
   $.get('data/location.geojson', function(data) {
     // add markers to map
@@ -43,7 +46,10 @@
       el.id = 'places';
       el.addEventListener('click', function() {
         //window.alert(marker.properties.location);
-        updateChart(marker.properties.location);
+        //updateChart(marker.properties.location);
+        //$('#myChart').show();
+        $('#thingybob').html('Showing Data for: ' + marker.properties.location);
+        redrawChart();
       });
 
       // make a marker for each feature and add to the map
@@ -59,6 +65,7 @@
   });
 
   MyMap.on('click', function(e) {
+    $('#myChart').show();
     //alert("IT WORKS!! Now give me a high five!");
     //console.log(e);
   });

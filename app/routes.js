@@ -1,10 +1,12 @@
 // app/routes.js
 var fs = require('fs');
+var turf = require('turf');
 var ocean_temp;
 fs.readFile(__dirname + '/data/ocean_temp.json', "utf8", function (err, data) {
   ocean_temp = JSON.parse(data);
 });
 // grab the chicken model we just created
+var location = ["Gladstone", "Emu Park", "Cairns", "Townsville", "Bundaberg", "Mackay Mk4"]
 
 module.exports = function (app) {
   // server routes ===========================================================
@@ -61,6 +63,40 @@ module.exports = function (app) {
   });
   app.get('/data/waveData.json', function (req, res) {
     res.json(ocean_temp[req.query.site]);
+  });
+  app.get('/data/location.geojson', function (req, res) {
+    var cords = []
+    var ourGeojson = {
+      type: "FeatureCollection",
+      features: []
+    }
+    var geoJsonPoint = {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Point",
+        "coordinates": []
+      }
+    }
+    for (i = 0; i < location.length; i++) {
+      console.log(location[i])
+      var lat = ocean_temp[location[i]][(ocean_temp[location[i]].length - 1)].Latitude
+      var long = ocean_temp[location[i]][(ocean_temp[location[i]].length - 1)].Longitude
+      cords.push([location[i], lat, long]);
+      var point = geoJsonPoint;
+      point.properties = {"location": location[i]}
+      point.geometry.coordinates = [long, lat];
+      console.log(point)
+      var stringy = JSON.stringify(point)
+      ourGeojson.features.push(JSON.parse(stringy));
+      console.log(JSON.stringify(ourGeojson));
+      var point = geoJsonPoint;
+    }
+
+
+    res.json(ourGeojson);
+
+
   });
   app.use(function (req, res, next) {
     res.status(404);

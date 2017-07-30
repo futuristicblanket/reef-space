@@ -1,12 +1,10 @@
-
 <div>
   <div id="content">
     <div id="reef-charting">
-      <span></span>
-      <canvas id="myChart"></canvas>
+      <canvas id="myChart" height="500%"></canvas>
 
-      <span id="left" class="glyphicon glyphicon-menu-right" style="float: right;"></span>
-      <span id="right" class="glyphicon glyphicon-menu-left" style="float: left;"></span>
+      <button><span id="left" class="glyphicon glyphicon-menu-left" style="float: right;"></span></button>
+      <button><span id="right" class="glyphicon glyphicon-menu-right" style="float: left;"></span></button>
       <br>
       <p id="sample-text"></p>
       <br>
@@ -20,13 +18,16 @@
   mapboxgl.accessToken = 'pk.eyJ1IjoicXVhbnR1bWRpc2htb3AiLCJhIjoiY2o1b3d5ajhhMDRyZjJxbWtieDExdzNqaSJ9.hBlTW6xRINUiZ6R_n7oGeg';
   var MyMap = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/satellite-v9',
+    style: 'mapbox://styles/quantumdishmop/cj5q16xyh1f6m2rqiads237hh',
     center: new mapboxgl.LngLat(149.600944, -20.266583),
     zoom: 4.5
   });
   MyMap.addControl(new mapboxgl.NavigationControl());
+  MyMap.on('mousemove', function(e) {
+    console.log(e.lngLat)
+  });
 
 </script>
-
+<p></p>
 <script type="text/javascript" src="libs/chart.js/dist/Chart.js"></script>
 <script type="text/javascript" src="js/reef.js"></script>

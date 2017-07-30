@@ -1,10 +1,11 @@
+
 <div>
   <div id="content">
     <div id="reef-charting">
       <canvas id="myChart" height="500%"></canvas>
 
-      <button><span id="left" class="glyphicon glyphicon-menu-left" style="float: right;"></span></button>
-      <button><span id="right" class="glyphicon glyphicon-menu-right" style="float: left;"></span></button>
+      <button id="left"><span class="glyphicon glyphicon-menu-left" style="float: right;"></span></button>
+      <button id="right"><span class="glyphicon glyphicon-menu-right" style="float: left;"></span></button>
       <br>
       <p id="sample-text"></p>
       <br>
@@ -15,7 +16,6 @@
 <script type="text/javascript" src="libs/jquery/dist/jquery.js"></script>
 <script src="https://api.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js"></script>
 <script>
-  //$('#sneaky-snek').hide();
   mapboxgl.accessToken = 'pk.eyJ1IjoicXVhbnR1bWRpc2htb3AiLCJhIjoiY2o1b3d5ajhhMDRyZjJxbWtieDExdzNqaSJ9.hBlTW6xRINUiZ6R_n7oGeg';
   var MyMap = new mapboxgl.Map({
     container: 'map',
@@ -24,11 +24,8 @@
     zoom: 4.5
   });
   MyMap.addControl(new mapboxgl.NavigationControl());
-  MyMap.on('mousemove', function(e) {
-    console.log(e.lngLat)
-  });
-$('#sneaky-snek').html(e);
+
 </script>
-<p id="sneaky-snek"></p>
+
 <script type="text/javascript" src="libs/chart.js/dist/Chart.js"></script>
 <script type="text/javascript" src="js/reef.js"></script>

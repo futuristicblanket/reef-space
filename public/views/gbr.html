@@ -29,6 +29,11 @@
       // create a HTML element for each feature
       var el = document.createElement('div');
       el.className = 'marker';
+      el.id = 'places';
+      el.addEventListener('click', function() {
+        //window.alert(marker.properties.location);
+        updateChart(marker.properties.location);
+      });
 
       // make a marker for each feature and add to the map
       new mapboxgl.Marker(el, {
@@ -40,10 +45,12 @@
   }, "json")
   MyMap.on('load', function() {
     MyMap.addControl(new mapboxgl.NavigationControl());
+  });
 
-
-
-  })
+  MyMap.on('click', function(e) {
+    //alert("IT WORKS!! Now give me a high five!");
+    //console.log(e);
+  });
 
 </script>
 

@@ -9,7 +9,7 @@ dataUrls = ["http://www.ehp.qld.gov.au/data-sets/waves/wave-7dayopdata.csv?times
 #Add the column name of the heading of the JSON file
 dataHead = ["Site"]
 #Add the column names of the data of the JSON file
-dataBody = [["DateTime", "Latitude", "Longitude", "SST"]]
+dataBody = [["DateTime", "Latitude", "Longitude", "SST",  "Hsig", "Hmax"]]
 
 
 def main():

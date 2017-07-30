@@ -1,5 +1,8 @@
 # Reef-space
+DISCLAIMER: The project repository as of 5:00PM on the 30th of Saturday 2017 is in the GovHack branch, the master branch has been updated since the competition has finished
+
 *The most amazing reef data thing ever!*
+
 ## About this project
 
 Data Reef is a collaborative project by team Futuristic Blanket regarding the issues that are currently facing many of Queensland’s natural systems.

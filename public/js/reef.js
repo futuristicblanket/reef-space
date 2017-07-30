@@ -2,6 +2,8 @@ $(document).ready(function () {
 
   //GRPAHING FUNCTION
   function char(atype, labels, label, data, colors, counter) {
+    $("#myChart").remove();
+    $('#reef-charting').append("<canvas id='myChart'></canvas>");
 
     var ctx = $("#myChart").get();
 
@@ -29,33 +31,14 @@ $(document).ready(function () {
       }
 
     });
-  }
+  };
+
   //DATA AND VARIBELS
-  var counter = 0;
-  var labels = [['red', 'red', 'red', 'red', 'red', 'red'], ['red', 'red', 'red', 'red', 'red', 'red']];
-  var atype = ['line', 'bar'];
-  var data = [[1, 2, 4, 8, 16, 32], [1, 2, 4, 8, 16, 32]];
-  var colors = [['#ff0000', '#ff0000', '#ff0000', '#ff0000', '#ff0000', '#ff0000'], ['#0000ff', '#0000ff', '#0000ff', '#0000ff', '#0000ff', '#0000ff']];
-  var label = [['red'], ['Blue']];
-  var numofpanels = 1;
-  char(atype, labels, label, data, colors, counter);
-  var sitemin = [];
-  //GETTING DATA
-  $.get('data/waveData.json', function (data) {
-    const startTime = performance.now();
-    site = data.Site;
-    sitemin.push(site);
-    console.log(sitemin);
-    const duration = performance.now() - startTime;
-    console.log(`someMethodIThinkMightBeSlow took ${duration}ms`);
-  }, "json");
-  //FIXXING POINTS
-  /* var power = 10 ** 2
-   var long = (Math.round(longatude * power)) / power;
-   var lat = (Math.round(latatude * power)) / power;*/
+  var counter = 4;
+  var numofpanels = 0;
 
   //CLICKS
-  var chartl = $("#right");
+  /*var chartl = $("#right");
   chartl.click(function () {
     counter++
     if (counter > numofpanels) {
@@ -72,5 +55,32 @@ $(document).ready(function () {
     };
     console.log(counter);
     char(atype, labels, label, data, colors, counter);
-  });
+  });*/
+
+  function updateChart(locationString) {
+
+    $.getJSON('data/wave.json?site=' + encodeURI(locationString),
+      function (data) {
+        console.log(data);
+        $.each(data, function (i, dataa) {
+          //Update Vars
+          data = [];
+          atype = ['line'];
+          counter = 4;
+          numofpanels = 1;
+          data = data.push([]).push(dataa.Hsia);
+          data = data.push([]).push(dataa.Hmax);
+          data = data.push([]).push(dataa.Tp);
+          data = data.push([]).push(dataa.Tz);
+          data = data.push([]).push(dataa.SST);
+          data = data.push([]) .push(dataa.Direction);
+          label = label.push(dataa.DateTime);
+          labels = 'Ocean Surface Tempuerture at ' + locationString;
+          numofpanels = 0;
+          //Update Chart
+          char(atype, labels, label, data, colors, counter);
+        });
+      }, "json");
+  };
+  updateChart('Tweed Heads');
 });

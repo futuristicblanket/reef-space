@@ -24,5 +24,5 @@ One of the biggest problems in creating this app was agreeing with the JSON file
 
 ### Future Plans
 
-This is not the end of Data Reef. We plan to expand it a lot more to include a lot more locations in Queensland, and maybe soon in Australia. There will also be a lot more variables to be taken into account including endangered species protection areas, areas of high risk and the biological data of organisms living in these natural systems. Data Reef is a project that will be going on for a long time, even after GovHack 2017 is over.
+This is not the end of Data Reef. We plan to expand it a lot more to include a lot more locations in Queensland, and maybe soon in Australia. There will also be a lot more variables to be taken into account including endangered species protection areas, areas of high risk and the biological data of organisms living in these natural systems. Data Reef is a project that will be going on for a long time, even after GovHack 2017 is over.We are also planning to add a feature where as the bouys move around, their movement is tracked.
 

@@ -1,5 +1,5 @@
 # Reef-space
-The most amazing reef data thing ever!
+*The most amazing reef data thing ever!*
 ## About this project
 
 Data Reef is a collaborative project by team Futuristic Blanket regarding the issues that are currently facing many of Queensland’s natural systems.
@@ -10,3 +10,10 @@ By creating awareness, we hope to bring light to an important issue and hopefull
 
 ![Great Barrier Reef](https://farm5.staticflickr.com/4312/36098187321_6592c8fb0b_k_d.jpg)
 Photo by BobLPhD1 licensed under CC BY-NC-ND 2.0
+### How does this project relate to the topic?
+
+This project aims to display data about the variables which are evidence of the degeneration of our natural ecosystems including species under high risk, the changes in tidal patterns, decreasing water quality and similar. By selecting locations known for their important natural systems, you are then given the data in the ways of charts, graphs and similar that comprehensively explain the way our Queensland icons are being damaged through visual means.
+
+### How we overcame problems...
+
+One of the biggest problems in creating this app was agreeing with the JSON files. They tended to malfunction often, and the libraries we introduced to the files would fail to work. The Google API’s were not working so we had to move onto the map box API, which worked. And also, as with any collaborative projects, there were a lot of merge conflicts. But starting from the ground up, we managed to overcome all these problems.

@@ -1,4 +1,3 @@
-
 <div>
   <div id="content">
     <div id="reef-charting">
@@ -19,11 +18,14 @@
   mapboxgl.accessToken = 'pk.eyJ1IjoicXVhbnR1bWRpc2htb3AiLCJhIjoiY2o1b3d5ajhhMDRyZjJxbWtieDExdzNqaSJ9.hBlTW6xRINUiZ6R_n7oGeg';
   var MyMap = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/satellite-v9',
+    style: 'mapbox://styles/quantumdishmop/cj5q16xyh1f6m2rqiads237hh',
     center: new mapboxgl.LngLat(149.600944, -20.266583),
     zoom: 4.5
   });
   MyMap.addControl(new mapboxgl.NavigationControl());
+  MyMap.on('mousemove', function(e) {
+    console.log(e.lngLat)
+  });
 
 </script>
 

@@ -1,10 +1,13 @@
 <div>
   <div id="content">
     <div id="reef-charting">
-      <canvas id="myChart" height="500%"></canvas>
+      <canvas id="myChart" height="200%"></canvas>
 
-      <button><span id="left" class="glyphicon glyphicon-menu-left" style="float: right;"></span></button>
-      <button><span id="right" class="glyphicon glyphicon-menu-right" style="float: left;"></span></button>
+
+      <button id="left" class="btn btn-info" style="width:40%; margin-left: 5%;"><span class="glyphicon glyphicon-menu-left" style="float: right;"></span></button>
+      <button id="right" class="btn btn-info" style="width:40%; margin-left: 10%;"><span class="glyphicon glyphicon-menu-right" style="float: left;"></span></button>
+
+
       <br>
       <p id="sample-text"></p>
       <br>
@@ -15,7 +18,10 @@
 <script type="text/javascript" src="libs/jquery/dist/jquery.js"></script>
 <script src="https://api.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js"></script>
 <script>
+<<<<<<< HEAD
   /*//$('#sneaky-snek').hide();
+=======
+>>>>>>> 98bbcd6da7b4ddbcf865aae9a3516e4c48460646
   mapboxgl.accessToken = 'pk.eyJ1IjoicXVhbnR1bWRpc2htb3AiLCJhIjoiY2o1b3d5ajhhMDRyZjJxbWtieDExdzNqaSJ9.hBlTW6xRINUiZ6R_n7oGeg';
   var MyMap = new mapboxgl.Map({
     container: 'map',
@@ -23,12 +29,45 @@
     center: new mapboxgl.LngLat(149.600944, -20.266583),
     zoom: 4.5
   });
+<<<<<<< HEAD
   MyMap.addControl(new mapboxgl.NavigationControl());
   MyMap.on('mouseclick', function(e) {
     console.log(e.lngLat)
   });
 $('#sneaky-snek').html(e);*/
+=======
+  $.get('data/location.geojson', function(data) {
+    // add markers to map
+    data.features.forEach(function(marker) {
+
+      // create a HTML element for each feature
+      var el = document.createElement('div');
+      el.className = 'marker';
+      el.id = 'places';
+      el.addEventListener('click', function() {
+        //window.alert(marker.properties.location);
+        updateChart(marker.properties.location);
+      });
+
+      // make a marker for each feature and add to the map
+      new mapboxgl.Marker(el, {
+          offset: [-50 / 2, -50 / 2]
+        })
+        .setLngLat(marker.geometry.coordinates)
+        .addTo(MyMap);
+    });
+  }, "json")
+  MyMap.on('load', function() {
+    MyMap.addControl(new mapboxgl.NavigationControl());
+  });
+
+  MyMap.on('click', function(e) {
+    //alert("IT WORKS!! Now give me a high five!");
+    //console.log(e);
+  });
+
+>>>>>>> 98bbcd6da7b4ddbcf865aae9a3516e4c48460646
 </script>
-<p id="sneaky-snek"></p>
+
 <script type="text/javascript" src="libs/chart.js/dist/Chart.js"></script>
 <script type="text/javascript" src="js/reef.js"></script>

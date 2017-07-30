@@ -8,4 +8,4 @@ We hope to educate by displaying data about the change in the water quality, inc
 It’s formatted in an interactive map intended to let clients navigate around Queensland and find important areas that are being threatened by our everyday activities.
 By creating awareness, we hope to bring light to an important issue and hopefully, spark the need for change for generations now and continuing.
 
-[Great Barrier Reef](https://farm5.staticflickr.com/4312/36098187321_6592c8fb0b_k_d.jpg)
+![Great Barrier Reef](https://farm5.staticflickr.com/4312/36098187321_6592c8fb0b_k_d.jpg)

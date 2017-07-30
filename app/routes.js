@@ -64,7 +64,7 @@ module.exports = function (app) {
   app.get('/data/wave.json', function (req, res) {
     res.json(ocean_temp[req.query.site]);
   });
-  app.get('/data/temp.json', function (req, rss) {
+  app.get('/data/temp.json', function (req, res) {
     var importantData = ocean_temp[req.query.site]
     var arrayThing = []
     for (i = importantData.length - 24; i < importantData.length; i++) {

@@ -22,12 +22,27 @@
     center: new mapboxgl.LngLat(149.600944, -20.266583),
     zoom: 4.5
   });
+  $.get('data/location.geojson', function(data) {
+    // add markers to map
+    data.features.forEach(function(marker) {
+
+      // create a HTML element for each feature
+      var el = document.createElement('div');
+      el.className = 'marker';
+
+      // make a marker for each feature and add to the map
+      new mapboxgl.Marker(el, {
+          offset: [-50 / 2, -50 / 2]
+        })
+        .setLngLat(marker.geometry.coordinates)
+        .addTo(MyMap);
+    });
+  }, "json")
   MyMap.on('load', function() {
     MyMap.addControl(new mapboxgl.NavigationControl());
-    MyMap.addSource('map', {
-      type: 'geojson',
-      data: 'data/location.geojson'
-    });
+
+
+
   })
 
 </script>

@@ -1,5 +1,6 @@
 // app/routes.js
 var fs = require('fs');
+var turf = require('turf');
 var ocean_temp;
 fs.readFile(__dirname + '/data/ocean_temp.json', "utf8", function (err, data) {
   ocean_temp = JSON.parse(data);
@@ -61,6 +62,10 @@ module.exports = function (app) {
   });
   app.get('/data/waveData.json', function (req, res) {
     res.json(ocean_temp[req.query.site]);
+  });
+  app.get('/data/location.geojson', function (req,res) {
+    res.json();
+    
   });
   app.use(function (req, res, next) {
     res.status(404);

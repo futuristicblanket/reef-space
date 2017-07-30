@@ -21,3 +21,8 @@ This project aims to display data about the variables which are evidence of the 
 ### How we overcame problems...
 
 One of the biggest problems in creating this app was agreeing with the JSON files. They tended to malfunction often, and the libraries we introduced to the files would fail to work. The Google API’s were not working so we had to move onto the map box API, which worked. And also, as with any collaborative projects, there were a lot of merge conflicts. But starting from the ground up, we managed to overcome all these problems.
+
+### Future Plans
+
+This is not the end of Data Reef. We plan to expand it a lot more to include a lot more locations in Queensland, and maybe soon in Australia. There will also be a lot more variables to be taken into account including endangered species protection areas, areas of high risk and the biological data of organisms living in these natural systems. Data Reef is a project that will be going on for a long time, even after GovHack 2017 is over.
+

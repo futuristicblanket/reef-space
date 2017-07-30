@@ -1,6 +1,7 @@
 <div>
   <div id="content">
     <div id="reef-charting">
+      <h2 id="thingybob" style="color: white"></h2>
       <canvas id="myChart" height="200%"></canvas>
 
 
@@ -31,7 +32,7 @@
   MyMap.on('mouseclick', function(e) {
     console.log(e.lngLat)
   });
-//$('#sneaky-snek').html(e);*/
+  //$('#sneaky-snek').html(e);*/
 
   $.get('data/location.geojson', function(data) {
     // add markers to map
@@ -43,7 +44,10 @@
       el.id = 'places';
       el.addEventListener('click', function() {
         //window.alert(marker.properties.location);
-        updateChart(marker.properties.location);
+        //updateChart(marker.properties.location);
+        //$('#myChart').show();
+        $('#thingybob').html('Showing Data for: ' + marker.properties.location);
+        redrawChart();
       });
 
       // make a marker for each feature and add to the map
@@ -59,6 +63,7 @@
   });
 
   MyMap.on('click', function(e) {
+    $('#myChart').show();
     //alert("IT WORKS!! Now give me a high five!");
     //console.log(e);
   });

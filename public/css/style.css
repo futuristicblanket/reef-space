@@ -117,16 +117,21 @@
     width: 100%;
     padding: 10px;
     font-size: 1.5em;
+    color: #c3c3c3;
+    background-color: rgba(52, 52, 52, 0.84);
   }
-
-.btn-info {
-  background-color: #9d9d9d;
-  border-color:black;
-}.btn-info:hover {
-  background-color: #484848;
-  border-color:black;
-}
-.btn-info:focus {
-  background-color: #9d9d9d;
-  border-color:black;
-}
+  
+  .btn-info {
+    background-color: #9d9d9d;
+    border-color: black;
+  }
+  
+  .btn-info:hover {
+    background-color: #484848;
+    border-color: black;
+  }
+  
+  .btn-info:focus {
+    background-color: #9d9d9d;
+    border-color: black;
+  }

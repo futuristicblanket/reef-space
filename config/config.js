@@ -6,6 +6,9 @@ var config = {
   development: {
     database: 'mongodb://localhost:27017/test-database',
     port: 3000
+  },
+  heroku: {
+    port: process.env.PORT
   }
 }
 

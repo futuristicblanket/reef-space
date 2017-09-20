@@ -13,7 +13,7 @@ module.exports = function (app) {
   // handle things like api calls
   // authentication routes
   // sample api route
-  app.get('/api/chickens', function (req, res) {
+/*  app.get('/api/chickens', function (req, res) {
     // use mongoose to get all chickens in the database
     Chicken.find(function (err, chooks) {
       // if there is an error retrieving, send the error. 
@@ -21,7 +21,7 @@ module.exports = function (app) {
       if (err) return console.error(err);
       res.json(chooks); // return all chickens in JSON format
     });
-  });
+  });*/
 
   // route to handle creating goes here (app.post)
   app.post('/api/chickens', function (req, res) {

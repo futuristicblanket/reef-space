@@ -5,7 +5,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
-var mongoose = require('mongoose');
+//var mongoose = require('mongoose');
 var path = require('path');
 
 // configuration ===========================================
@@ -18,8 +18,8 @@ var port = config.port || process.env.PORT;
 
 // connect to our mongoDB database 
 // (uncomment after you enter in your own credentials in config/db.js)
-mongoose.connect(config.database);
-var db = mongoose.connection;
+//mongoose.connect(config.database);
+//var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
   console.log('Connected!');

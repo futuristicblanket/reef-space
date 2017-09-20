@@ -22,8 +22,8 @@ var port = config.port || process.env.PORT;
 //var db = mongoose.connection;
 //db.on('error', console.error.bind(console, 'connection error:'));
 //db.once('open', function () {
-  console.log('Connected!');
-});
+//  console.log('Connected!');
+//});
 // get all data/stuff of the body (POST) parameters
 // parse application/json 
 app.use(bodyParser.json());

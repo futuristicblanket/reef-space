@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "sudo pm2 start server.js -i max — name=\"Github-Sample-App\" --env=\"production\"",
-    "restart": "sudo pm2 restart all"
+    "restart": "sudo pm2 restart all",
+    "heroku": "node server.js"
   },
   "author": "Thomas Payne",
   "license": "MIT",

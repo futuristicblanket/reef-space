@@ -14,7 +14,7 @@ var path = require('path');
 var config = require('./config/config.js').get(process.env.NODE_ENV || "production");
 
 // set our port
-var port = process.env.PORT || config.port;
+var port = config.port || process.env.PORT;
 
 // connect to our mongoDB database 
 // (uncomment after you enter in your own credentials in config/db.js)

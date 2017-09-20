@@ -20,8 +20,8 @@ var port = config.port || process.env.PORT;
 // (uncomment after you enter in your own credentials in config/db.js)
 //mongoose.connect(config.database);
 //var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function () {
+//db.on('error', console.error.bind(console, 'connection error:'));
+//db.once('open', function () {
   console.log('Connected!');
 });
 // get all data/stuff of the body (POST) parameters

@@ -105,7 +105,7 @@ function char(atype, labels, label, data, colors, counter) {
   });
 }
 //DATA AND VARIBELS
-var counter = 4;
+var counter = 0;
 var labels = [[], [], [], [], [], []];
 var atype = ['line', 'line', 'line', 'line', 'line', 'line'];
 var data = [[], [], [], [], [], []];
@@ -126,11 +126,37 @@ $.getJSON('/data/ocean_temp.json', function (data, status) {
 	$.each(data, function(id, val){
 		wave.push(data[id]);
 	});
-	console.log(wave);
-	console.log(wave[0])
-	wave.each(data, function(id, val){
-
-	});
+	//console.log(wave);
+	//console.log(wave[0])
+	var Hsig = [];
+	var Hmax = [];
+	var Tp = [];
+     var Tz = [];
+     var SST = [];
+     var Direction = [];
+     var DateTime = [];
+     var length = 30;
+     var wavy = wave[0];
+function varpushing(name){
+	name.push(wavy[i].name)
+};
+	for(var i = 0; i < wave[0].length; i++){
+		Hsig.push(wavy[i].Hsig)
+		Hmax.push(wavy[i].Hmax)
+		Tp.push(wavy[i].Tp)
+		Tz.push(wavy[i].Tz)
+		SST.push(wavy[i].SST)
+		Direction.push(wavy[i].Direction)
+		DateTime.push(wavy[i].DateTime)
+	};
+	hsig = Hsig.slice(0, 30);
+	hmax = Hmax.slice(0, length);
+	tp = Tp.slice(0, length);
+	tz = Tz.slice(0, length);
+	sst = SST.slice(0, length);
+	dir = Direction.slice(0, length);
+	time = DateTime.slice(0, length);
+	console.log(hsig)
 }, "json");
 //CLICKS
 var chartl = $("#right");

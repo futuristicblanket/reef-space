@@ -12,6 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "chart.js": "^2.7.2",
     "csvtojson": "^1.1.7",
     "express": "^4.15.3",
     "gulp-cli": "^2.0.1",

@@ -21,7 +21,8 @@
 <script type="text/javascript" src="libs/chart.js/dist/Chart.js"></script>
 <script>
   //$('#sneaky-snek').hide();
-
+$(document).ready(function(){
+//var numloc = 0;
   mapboxgl.accessToken = 'pk.eyJ1IjoicXVhbnR1bWRpc2htb3AiLCJhIjoiY2o1b3d5ajhhMDRyZjJxbWtieDExdzNqaSJ9.hBlTW6xRINUiZ6R_n7oGeg';
   var MyMap = new mapboxgl.Map({
     container: 'map',
@@ -47,10 +48,30 @@
         //window.alert(marker.properties.location);
         //updateChart(marker.properties.location);
         //$('#myChart').show();
-        $('#thingybob').html('Showing Data for: ' + marker.properties.location);
         redrawChart();
 				var neededlocation = marker.properties.location;
 				console.log(neededlocation);
+				function locvarseter(a, b){
+					if (neededlocation === a){numloc = b}
+				}
+				locvarseter("Tweed Heads", 0);
+				locvarseter("Gold Coast", 1);
+				locvarseter("Caloundra", 2);
+				locvarseter("North Moreton Bay", 3);
+				locvarseter("Mooloolaba", 4);
+				locvarseter("Gladstone", 5);
+				locvarseter("Emu Park", 6);
+				locvarseter("Hay Point", 7);
+				locvarseter("Townsville", 8);
+				locvarseter("Cairns", 9);
+				locvarseter("Albatross Bay", 10);
+				locvarseter("Bundaberg", 11);
+				locvarseter("Tweed Heads Mk4", 12);
+				locvarseter("Mackay Mk4", 13);
+				locvarseter("Brisbane Mk4", 14);
+				console.log(numloc)
+				console.log(neededlocation)
+				$('#thingybob').html('Showing Data for: ' + neededlocation + "<br><div class='numloc'>" + numloc + "</div>");
       });
 
       // make a marker for each feature and add to the map
@@ -59,7 +80,7 @@
         })
         .setLngLat(marker.geometry.coordinates)
         .addTo(MyMap);
-    });
+
   }, "json")
   MyMap.on('load', function() {
     MyMap.addControl(new mapboxgl.NavigationControl());
@@ -72,10 +93,10 @@
   });
   function redrawChart() {
 
-    char(atype, labels, label, data, colors, counter);
+    char(atype, labels, label, graphdata, colors, counter);
   }
   //GRPAHING FUNCTION
-function char(atype, labels, label, data, colors, counter) {
+function char(atype, labels, label, graphdata, colors, counter) {
 
   var ctx = $("#myChart").get();
 
@@ -85,7 +106,7 @@ function char(atype, labels, label, data, colors, counter) {
       labels: labels[counter],
       datasets: [{
         label: label[counter],
-        data: data[counter],
+        data: graphdata[counter],
         backgroundColor: colors[counter],
         borderColor: colors[counter],
         borderWidth: 1
@@ -105,14 +126,20 @@ function char(atype, labels, label, data, colors, counter) {
   });
 }
 //DATA AND VARIBELS
+var colors = [[], [], [], [], [], []];
+var colour = "#222";
+for(var i = 0; i < 6; i++){
+	for(var k = 0; k < 30; k++){
+		colors[i].push(colour)
+	};
+};
 var counter = 0;
 var labels = [[], [], [], [], [], []];
 var atype = ['line', 'line', 'line', 'line', 'line', 'line'];
-var data = [[], [], [], [], [], []];
-var colors = [[], [], [], [], [], []];
+var graphdata = [[], [], [], [], [], []];
 var label = [["Hsig"], ["Hmax"], ["Tp"], ["Tz"], ["SST"], ["Direction"]];
 var numofpanels = 5;
-char(atype, labels, label, data, colors, counter);
+char(atype, labels, label, graphdata, colors, counter);
 var sitemin = [];
 //GETTING DATA
 $.getJSON('/data/ocean_temp.json', function (data, status) {
@@ -126,7 +153,8 @@ $.getJSON('/data/ocean_temp.json', function (data, status) {
 	$.each(data, function(id, val){
 		wave.push(data[id]);
 	});
-	//console.log(wave);
+	//console.log(wave.Cairns)
+	console.log(wave);
 	//console.log(wave[0])
 	var Hsig = [];
 	var Hmax = [];
@@ -136,11 +164,17 @@ $.getJSON('/data/ocean_temp.json', function (data, status) {
      var Direction = [];
      var DateTime = [];
      var length = 30;
-     var wavy = wave[0];
+		if ($(".locnum").length === 0){
+				var locnum = 0;
+		} else {
+		var locnum = $(".locnum")
+		}
+		console.log(locnum)
+     var wavy = wave[locnum]
 function varpushing(name){
 	name.push(wavy[i].name)
 };
-	for(var i = 0; i < wave[0].length; i++){
+	for(var i = 0; i < wavy.length; i++){
 		Hsig.push(wavy[i].Hsig)
 		Hmax.push(wavy[i].Hmax)
 		Tp.push(wavy[i].Tp)
@@ -149,6 +183,7 @@ function varpushing(name){
 		Direction.push(wavy[i].Direction)
 		DateTime.push(wavy[i].DateTime)
 	};
+	time = DateTime.slice(0, 30);
 	hsig = Hsig.slice(0, 30);
 	hmax = Hmax.slice(0, length);
 	tp = Tp.slice(0, length);
@@ -156,7 +191,17 @@ function varpushing(name){
 	sst = SST.slice(0, length);
 	dir = Direction.slice(0, length);
 	time = DateTime.slice(0, length);
-	console.log(hsig)
+	graphdata[0] = hsig
+	graphdata[1] = hmax
+	graphdata[2] = tp
+	graphdata[3] = tz
+	graphdata[4] = sst
+	graphdata[5] = dir
+	for(var i = 0; i < 6; i++){
+		labels[i] = time
+	}
+	console.log(graphdata)
+
 }, "json");
 //CLICKS
 var chartl = $("#right");
@@ -166,7 +211,7 @@ chartl.click(function () {
     counter = 0
   };
   console.log(counter);
-  //char(atype, labels, label, data, colors, counter);
+  char(atype, labels, label, graphdata, colors, counter);
 })
 var chartr = $("#left");
 chartr.click(function () {
@@ -175,7 +220,8 @@ chartr.click(function () {
     counter = numofpanels;
   };
   console.log(counter);
-  //char(atype, labels, label, data, colors, counter);
+  char(atype, labels, label, graphdata, colors, counter);
 });
-
+ });
+});
 </script>

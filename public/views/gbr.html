@@ -6,7 +6,6 @@
       </div>
       <canvas id="myChart" height="200%"></canvas>
 
-
       <button id="left" class="btn btn-info" style="width:40%; margin-left: 5%;"><span class="glyphicon glyphicon-menu-left" style="float: center;"></span></button>
       <button id="right" class="btn btn-info" style="width:40%; margin-left: 10%;"><span class="glyphicon glyphicon-menu-right" style="float: center; "></span></button>
 
@@ -19,6 +18,7 @@
   </div>
 </div>
 <script src="https://api.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js"></script>
+<script type="text/javascript" src="libs/chart.js/dist/Chart.js"></script>
 <script>
   //$('#sneaky-snek').hide();
 
@@ -49,6 +49,8 @@
         //$('#myChart').show();
         $('#thingybob').html('Showing Data for: ' + marker.properties.location);
         redrawChart();
+				var location = marker.properties.location;
+				console.log(location);
       });
 
       // make a marker for each feature and add to the map
@@ -68,8 +70,80 @@
     //alert("IT WORKS!! Now give me a high five!");
     //console.log(e);
   });
+  function redrawChart() {
+
+    char(atype, labels, label, data, colors, counter);
+  }
+  //GRPAHING FUNCTION
+function char(atype, labels, label, data, colors, counter) {
+
+  var ctx = $("#myChart").get();
+
+  var mono = new Chart(ctx, {
+    type: atype[counter],
+    data: {
+      labels: labels[counter],
+      datasets: [{
+        label: label[counter],
+        data: data[counter],
+        backgroundColor: colors[counter],
+        borderColor: colors[counter],
+        borderWidth: 1
+          }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true,
+          }
+              }]
+      },
+      fill: true,
+    }
+
+  });
+}
+//DATA AND VARIBELS
+var counter = 4;
+var labels = [[], [], [], [], [], []];
+var atype = ['line', 'line', 'line', 'line', 'line', 'line'];
+var data = [[], [], [], [], [], []];
+var colors = [[], [], [], [], [], []];
+var label = [["Hsig"], ["Hmax"], ["Tp"], ["Tz"], ["SST"], ["Direction"]];
+var numofpanels = 5;
+char(atype, labels, label, data, colors, counter);
+var sitemin = [];
+//GETTING DATA
+$.getJSON('/data/wave.json', function (data) {
+  const startTime = performance.now();
+  site = data.Site;
+  sitemin.push(site);
+  console.log(sitemin);
+  const duration = performance.now() - startTime;
+  console.log(`someMethodIThinkMightBeSlow took ${duration}ms`);
+	$.each(data, function (i, data) {
+		console.log(data);
+	});
+}, "json");
+//CLICKS
+var chartl = $("#right");
+chartl.click(function () {
+  counter++
+  if (counter > numofpanels) {
+    counter = 0
+  };
+  console.log(counter);
+  //char(atype, labels, label, data, colors, counter);
+})
+var chartr = $("#left");
+chartr.click(function () {
+  counter = counter - 1;
+  if (counter < 0) {
+    counter = numofpanels;
+  };
+  console.log(counter);
+  //char(atype, labels, label, data, colors, counter);
+});
 
 </script>
-
-<script type="text/javascript" src="libs/chart.js/dist/Chart.js"></script>
-<script type="text/javascript" src="js/reef.js"></script>

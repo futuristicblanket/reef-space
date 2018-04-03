@@ -49,8 +49,8 @@
         //$('#myChart').show();
         $('#thingybob').html('Showing Data for: ' + marker.properties.location);
         redrawChart();
-				var location = marker.properties.location;
-				console.log(location);
+				var neededlocation = marker.properties.location;
+				console.log(neededlocation);
       });
 
       // make a marker for each feature and add to the map
@@ -115,15 +115,21 @@ var numofpanels = 5;
 char(atype, labels, label, data, colors, counter);
 var sitemin = [];
 //GETTING DATA
-$.getJSON('/data/wave.json', function (data) {
+$.getJSON('/data/ocean_temp.json', function (data, status) {
   const startTime = performance.now();
   site = data.Site;
   sitemin.push(site);
   console.log(sitemin);
   const duration = performance.now() - startTime;
   console.log(`someMethodIThinkMightBeSlow took ${duration}ms`);
-	$.each(data, function (i, data) {
-		console.log(data);
+	var wave = [];
+	$.each(data, function(id, val){
+		wave.push(data[id]);
+	});
+	console.log(wave);
+	console.log(wave[0])
+	wave.each(data, function(id, val){
+
 	});
 }, "json");
 //CLICKS

@@ -16,7 +16,7 @@ module.exports = function (app) {
 /*  app.get('/api/chickens', function (req, res) {
     // use mongoose to get all chickens in the database
     Chicken.find(function (err, chooks) {
-      // if there is an error retrieving, send the error. 
+      // if there is an error retrieving, send the error.
       // nothing after res.send(err) will execute
       if (err) return console.error(err);
       res.json(chooks); // return all chickens in JSON format
@@ -65,6 +65,7 @@ module.exports = function (app) {
     res.json(ocean_temp[req.query.site]);
   });
   app.get('/data/temp.json', function (req, res) {
+		var length = 0;
     var importantData = ocean_temp[req.query.site]
     var arrayThing = []
     for (i = importantData.length - 24; i < importantData.length; i++) {
@@ -118,4 +119,5 @@ module.exports = function (app) {
       return;
     };
   });
+
 };

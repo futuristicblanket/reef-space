@@ -48,6 +48,7 @@ $(document).ready(function(){
         //window.alert(marker.properties.location);
         //updateChart(marker.properties.location);
         //$('#myChart').show();
+				delete redrawChart
         redrawChart();
 				var neededlocation = marker.properties.location;
 				console.log(neededlocation);
@@ -163,7 +164,7 @@ $.getJSON('/data/ocean_temp.json', function (data, status) {
      var SST = [];
      var Direction = [];
      var DateTime = [];
-     var length = 30;
+     var length = 5;
 		if ($(".locnum").length === 0){
 				var locnum = 0;
 		} else {
@@ -183,8 +184,8 @@ function varpushing(name){
 		Direction.push(wavy[i].Direction)
 		DateTime.push(wavy[i].DateTime)
 	};
-	time = DateTime.slice(0, 30);
-	hsig = Hsig.slice(0, 30);
+	time = DateTime.slice(0, length);
+	hsig = Hsig.slice(0, length);
 	hmax = Hmax.slice(0, length);
 	tp = Tp.slice(0, length);
 	tz = Tz.slice(0, length);
@@ -211,6 +212,7 @@ chartl.click(function () {
     counter = 0
   };
   console.log(counter);
+	delete char
   char(atype, labels, label, graphdata, colors, counter);
 })
 var chartr = $("#left");
@@ -220,6 +222,7 @@ chartr.click(function () {
     counter = numofpanels;
   };
   console.log(counter);
+	delete char
   char(atype, labels, label, graphdata, colors, counter);
 });
  });
